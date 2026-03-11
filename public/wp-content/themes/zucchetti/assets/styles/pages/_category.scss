@@ -1,0 +1,17 @@
+/**
+ * Category styles
+ */
+body.roketto.category-blog {
+
+	.row .col.section-title span {
+		text-transform: uppercase;
+		@include themeFont();
+	}
+
+	h1,h2,h3,h4,h5,h6 {
+		@include themeFont();
+	}
+	#sidebar h4 {
+		@include themeFont();	
+	}
+}

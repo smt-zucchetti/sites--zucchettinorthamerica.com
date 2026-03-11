@@ -1,0 +1,33 @@
+/**
+ * Theme vars
+ */
+
+// colours
+
+$green: #76B82A;
+$blue: #026AB4;
+$light_blue: #138CE3;
+$dark_blue: #0A1F30;
+$off-white: #F7FBFC;
+
+// Greys
+$grey-dark: #1E1E1E;
+$grey-med: #4E595A;
+$grey-light: #F6F6F6;
+
+$primary: $green;
+$secondary: $blue;
+
+$pColor: $grey-dark;
+$hColor: $grey-dark;
+$hColor2: $primary;
+
+// fonts
+$heading_font: 'Roboto';
+$theme_font: 'Roboto';
+
+$hFont: $heading_font;
+$pFont: $theme_font;
+
+// other
+$transition: all 0.3s ease;

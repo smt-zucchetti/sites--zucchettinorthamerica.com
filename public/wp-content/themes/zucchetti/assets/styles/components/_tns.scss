@@ -1,0 +1,63 @@
+.custom-controls {
+
+
+    .tns-controls:not([style="display: none;"]) ~ .tns-ovh {
+        max-width: calc(100% - 75px);
+        margin: 0 auto;
+    }
+
+    .tns-outer {
+        position: relative;
+    }
+
+    .tns-controls {
+        button {
+            background-color: transparent;
+            border: none;
+            appearance: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            appearance: none;
+            height: 35px;
+            width: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            opacity: 1;
+
+            svg {
+                width: 25px;
+                height: 25px;
+
+                * {
+                    transition: fill 0.3s ease-in-out;
+                }
+            }
+
+            i {
+                line-height: 0;
+            }
+
+            &[data-controls="prev"] {
+                left: 0px;
+            }
+
+            &[data-controls="next"] {
+                right: 0px;
+            }
+
+            &:hover {
+
+                svg {
+                    * {
+                        fill: $primary;
+                    }
+                }
+            }
+
+        }
+
+    }
+}

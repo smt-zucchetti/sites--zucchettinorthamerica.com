@@ -1,0 +1,58 @@
+// Core Styles
+@import "core/fonts";
+@import "core/icons";
+@import "core/vars";
+@import "core/helpers";
+@import "core/typography";
+@import "core/global";
+@import "core/grid";
+@import "core/animations";
+
+// Layouts
+@import "layouts/header";
+@import "layouts/footer";
+
+// Global components
+@import "components/forms";
+@import "components/tables";
+@import "components/tns";
+@import "components/numeric-pagination";
+@import "components/next-previous-nav";
+@import "components/blog-tabber";
+@import "components/blog-toc";
+@import "components/blog-newsletter";
+@import "components/product-callout";
+@import "components/after-ocm-content";
+
+// Salient Specific
+@import "salient/core/body";
+@import "salient/core/header";
+@import "salient/core/buttons";
+@import "salient/core/page-header";
+@import "salient/core/layouts";
+@import "salient/core/single-image";
+@import "salient/core/typography";
+@import "salient/core/pagination";
+@import "salient/core/mobile-menu";
+@import "salient/core/formats";
+@import "salient/core/woocommerce";
+
+// Custom Styles for default salient blocks
+@import "salient/blocks/single-testimonial";
+@import "salient/blocks/team-member";
+
+// Page specific
+@import "pages/home";
+@import "pages/single";
+@import "pages/category";
+@import "pages/error-404";
+@import "pages/search";
+@import "pages/single-product";
+@import "pages/archive-product";
+@import "pages/single-customer-story";
+@import "pages/tax-resources";
+@import "pages/single-dakota-resource";
+
+// vendor
+@import "vendor/ninja-tables";
+//@import "vendor/lity";ninja-tables

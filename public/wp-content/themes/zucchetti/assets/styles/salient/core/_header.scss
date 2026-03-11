@@ -1,0 +1,50 @@
+/**
+ * Salient specific Header overrides
+ */
+body.roketto {
+	#header-outer nav .nectar-global-section-megamenu .row-bg-wrap {
+		left: 50%;
+		width: 100vw;
+		width: calc(100vw - var(--scroll-bar-w));
+		transform: translateX(-50%);
+		border-top: 1px solid #e1e1e1;
+	}
+
+	#header-outer nav .nectar-global-section-megamenu {
+		left: 50%;
+		width: 100vw;
+		width: calc(100vw - var(--scroll-bar-w));
+		transform: translateX(-50%);
+
+		&::-webkit-scrollbar {
+			width: 0;
+			background: transparent;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background: #ff0000;
+		}
+
+		.inner {
+			max-width: 1475px;
+			margin: 0 auto;
+
+			@media only screen and (min-width: 1000px) {
+				padding: 0 90px !important;
+			}
+		}
+
+		.img-with-aniamtion-wrap {
+			.inner {
+				@media only screen and (min-width: 1000px) {
+					padding: 0 !important;
+				}
+			}
+		}
+	}
+
+	#header-outer #top nav .nectar-global-section-megamenu ul {
+		border: unset;
+		padding: 0 !important;
+	}
+}

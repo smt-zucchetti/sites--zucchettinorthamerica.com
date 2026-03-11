@@ -1,0 +1,79 @@
+@import "../core/vars";
+
+.vc-icon-checklist-columns {
+	padding: 35px 15px 45px;
+}
+
+.vc-icon-checklist-columns--title {
+	color: white;
+	text-align: center;
+	direction: block;
+	margin-bottom: 40px !important;
+}
+
+.vc-icon-checklist-columns--items {
+	margin-left: -24px;
+	margin-right: -24px;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.vc-icon-checklist-columns--item {
+	padding-left: 24px;
+	padding-right: 24px;
+	flex: 0 0 100%;
+	max-width: 100%;
+	position: relative;
+}
+@media screen and (max-width: 767px) {
+    .vc-icon-checklist-columns--item + .vc-icon-checklist-columns--item {
+        margin-top: 30px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .vc-icon-checklist-columns {
+        padding: 35px 35px 45px;
+    }
+	.vc-icon-checklist-columns--item {
+		flex: 0 0 33.33%;
+		max-width: 33.33%;
+		& + .vc-icon-checklist-columns--item {
+			&:before {
+				content: "";
+				position: absolute;
+				left: 0;
+				width: 1px;
+				height: 100%;
+				border-left: 1px dashed white;
+			}
+		}
+	}
+}
+
+.vc-icon-checklist-columns--item_description {
+	color: white;
+	font-weight: 400;
+	position: relative;
+	padding-left: 40px;
+
+	&:before {
+		font-family: "iconFont";
+		speak: none;
+		font-style: normal;
+		font-weight: normal;
+		font-variant: normal;
+		text-transform: none;
+		line-height: 1;
+		background-color: transparent;
+
+		/* Better Font Rendering =========== */
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		content: "\" !important;
+		position: absolute;
+		left: 0;
+		top: 0;
+		font-size: 25px;
+	}
+}

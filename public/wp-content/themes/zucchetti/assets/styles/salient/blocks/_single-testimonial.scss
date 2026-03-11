@@ -1,0 +1,45 @@
+/**
+     * Single Testimonial
+     */
+.nectar_single_testimonial {
+    position: relative;
+    height:100%;
+    background-color: white;
+    border-radius: 10px;
+    .inner {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 40px;
+        align-items: center;
+
+        .image-icon {
+            order: 1;
+        }
+
+        .wrap {
+            order: 2;
+
+            span:first-child {
+                font-size: 25px;
+                font-weight: 600;
+                color: $secondary;
+                letter-spacing: normal;
+            }
+
+            span.title {
+            	font-size: 15px;
+            	opacity: 1;
+            	font-weight:400;
+            }
+        }
+
+        p {
+            margin-top: 15px;
+            order: 3;
+            font-size: 20px;
+            line-height:28px;
+            font-weight:500;
+        }
+    }
+}

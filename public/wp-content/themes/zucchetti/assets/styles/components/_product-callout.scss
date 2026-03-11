@@ -1,0 +1,114 @@
+.product-callout {
+	position: relative;
+	border-radius: 15px;
+	background-color: $primary;
+	z-index: 2;
+	padding: 30px;
+	overflow: hidden;
+	margin-top:40px;
+	margin-bottom: 40px;
+}
+.product-callout--accent_r,
+.product-callout--accent_l {
+	position: absolute;
+	margin-bottom: 0 !important;
+}
+
+.product-callout--accent_l {
+	top: -25%;
+	left: -15%;
+	width: 50% !important;
+	aspect-ratio: 372 / 373;
+}
+.product-callout--accent_r {
+	bottom: 0;
+	right: 0;
+	width: 20% !important;
+	aspect-ratio: 131 / 121;
+}
+.product-callout--row {
+	display: flex;
+    flex-wrap:wrap;
+	justify-content: center;
+	margin-left: -12px;
+	margin-right: -12px;
+}
+.product-callout--col_l,
+.product-callout--col_r {
+	flex: 0 0 100%;
+	max-width: 100%;
+	padding-left: 12px;
+	padding-right: 12px;
+	position: relative;
+}
+.product-callout--content_wrap {
+    margin-bottom: 40px;
+}
+.product-callout--content {
+	* {
+		color: white;
+	}
+	p {
+		font-size: 16px;
+		line-height: 1.4em;
+	}
+}
+.product-callout--link {
+	margin-top: 15px;
+}
+.product-callout--image_wrap {
+}
+.product-callout--image {
+	position: relative;
+	width: 100%;
+	padding-bottom: 100%;
+	border-radius: 15px;
+    z-index: 2;
+	&:before {
+		content: "";
+		position: absolute;
+		top: -15px;
+		right: -15px;
+		height: 80%;
+		width: 80%;
+		background-color: #497d28;
+		border-radius: 15px;
+        z-index: -1;
+	}
+	img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100% !important;
+		height: 100% !important;
+		object-position: bottom center;
+		object-fit: cover;
+		border-radius: 15px;
+        z-index: 3;
+	}
+}
+
+@media screen and (min-width: 768px) {
+    .product-callout--content_wrap {
+        margin-bottom: 0;
+    }
+	.product-callout--col_l {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+	.product-callout--col_r {
+		flex: 0 0 50%;
+		max-width: 50%;
+	}
+}
+
+@media screen and (min-width: 1001px) {
+	.product-callout--col_l {
+		flex: 0 0 66.66%;
+		max-width: 66.66%;
+	}
+	.product-callout--col_r {
+		flex: 0 0 33.33%;
+		max-width: 33.33%;
+	}
+}

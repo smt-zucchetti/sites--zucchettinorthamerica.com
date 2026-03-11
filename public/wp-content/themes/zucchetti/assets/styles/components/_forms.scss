@@ -1,0 +1,137 @@
+/**
+ * Form styling overrides.
+ */
+body.roketto {
+
+    .gform_wrapper {
+
+    	.top_label .gfield_label {
+    		text-transform: none!important;
+    	}
+
+        .ginput_container {
+            input:not(.gfield-choice-input) {
+                background-color: #f9fafb;
+                border-radius: 10px;
+                border: 1px solid #c5cad1;
+                height: 52px;
+                padding-left: 20px;
+                padding-right: 20px;
+                font-size: 19px;
+                line-height: 52px;
+
+                &::placeholder {
+                    color: rgba($pColor, 1);
+                    opacity: 0.75;
+                }
+            }
+
+            select {
+                background-color: #f9fafb;
+                border-radius: 10px;
+                border: 1px solid #c5cad1;
+                height: 52px;
+                padding-left: 20px;
+                padding-right: 20px;
+                font-size: 19px;
+                line-height: 52px;
+
+                &::placeholder {
+                    color: rgba($pColor, 1);
+                    opacity: 0.75;
+                }
+            }
+
+            textarea {
+                background-color: #f9fafb;
+                border-radius: 10px;
+                border: 1px solid #c5cad1;
+                height: 52px;
+                padding-top: 0px;
+                padding-left: 20px;
+                padding-right: 20px;
+                font-size: 19px;
+                line-height: 52px;
+
+                &::placeholder {
+                    color: rgba($pColor, 1);
+                    opacity: 0.75;
+                }
+            }
+        }
+
+        .gchoice {
+        	margin-top: 20px;
+        	label {
+        		display: flex;
+        		gap:0px;
+        	}
+        }
+    }
+
+    .gform_wrapper .gform_footer {
+        justify-content: flex-start;
+        margin-top: 20px !important;
+        padding-bottom: 25px;
+    }
+
+
+    .gform_required_legend {
+        display: none;
+    }
+
+    /**
+		* Gravity form button, you can use our ihButton mixin
+		* to inherit custom button styles
+		*/
+
+    .gform_wrapper .gform_footer {
+        justify-content: center;
+        margin-top: 40px;
+    }
+
+    .gform_wrapper .gform_footer input[type="submit"],
+    .gform_wrapper .gform_footer button[type="submit"] {
+        width: 100% !important;
+        height: 53px !important;
+        font-family: $hFont !important;
+        color: white !important;
+        background-color: $primary !important;
+        max-width: 161px !important;
+        font-family: $pFont !important;
+        font-size: 22px !important;
+        font-weight: 800 !important;
+        margin-left: auto;
+        margin-right: auto;
+
+        &:hover {
+            background-color: $grey-dark !important;
+        }
+    }
+
+    .gform_wrapper .gform_footer .gform_save_link {
+        width: 100% !important;
+        background-color: #4a4d5e !important;
+        height: 53px !important;
+        color: white !important;
+        text-transform: uppercase !important;
+        font-family: $hFont !important;
+
+        &:before {
+            color: white !important;
+        }
+
+        &:hover {
+            background-color: $grey-dark !important;
+        }
+    }
+
+    .gform-theme--foundation .gform_fields {
+        column-gap: 20px;
+        row-gap: 0px;
+    }
+
+    .gform-theme {
+        margin-bottom: 0 !important;
+    }
+}

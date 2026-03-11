@@ -1,0 +1,16 @@
+.after-ocm-content {
+	.login_url--wrap {
+		margin-bottom: 15px;
+	}
+	.login_url--link {
+		display: flex;
+		gap: 15px;
+		i {
+			font-size: 20px;
+		}
+	}
+	.header-phone-number--wrap {
+		display: flex;
+		gap: 15px;
+	}
+}

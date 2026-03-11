@@ -1,0 +1,66 @@
+/**
+ * Some simple animations.
+ */
+.start-opacity-0 {
+  opacity: 0;
+}
+
+.rk-fade-in-left {
+	animation-name: fadeInLeftCustom;
+}
+
+.rk-fade-in-right {
+	animation-name: fadeInRightCustom;
+}
+
+.rk-fade-in-from-top {
+  animation-name: fadeInTopCustom;
+}
+
+.rk-fade-in-from-bottom {
+  animation-name: fadeInBottomCustom;
+}
+
+@keyframes fadeInLeftCustom {
+  0% {
+     opacity: 0;
+     transform: translateX(-60px);
+  }
+  100% {
+     opacity: 1;
+     transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRightCustom {
+  0% {
+     opacity: 0;
+     transform: translateX(60px);
+  }
+  100% {
+     opacity: 1;
+     transform: translateX(0);
+  }
+}
+
+@keyframes fadeInBottomCustom {
+  0% {
+     opacity: 0;
+     transform: translateY(60px);
+  }
+  100% {
+     opacity: 1;
+     transform: translateY(0);
+  }
+}
+
+@keyframes fadeInTopCustom {
+  0% {
+     opacity: 0;
+     transform: translateY(-60px);
+  }
+  100% {
+     opacity: 1;
+     transform: translateY(0);
+  }
+}

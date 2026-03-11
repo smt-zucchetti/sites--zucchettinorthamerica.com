@@ -1,0 +1,27 @@
+/**
+ * Salient Page header styles
+ */
+body.roketto {
+
+    #page-header-wrap {
+        box-shadow: 0px 16px 25px -5px rgba(0, 0, 0, 0.05);
+        z-index: 11;
+    }
+
+    #page-header-bg {
+        background-color: white !important;
+
+        @media screen and (max-width: 767px) {
+            padding-top: 82px!important;
+            padding-bottom: 40px!important;
+        }
+    }
+
+    .page-header-overlay-color {
+        display: none;
+    }
+
+    &.archive .page-header-bg-image::after {
+        display: none;
+    }
+}

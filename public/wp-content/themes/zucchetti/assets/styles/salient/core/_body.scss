@@ -1,0 +1,9 @@
+body[data-bg-header="true"] .container-wrap {
+
+}
+
+@media screen and (max-width:767px) {
+	body[data-bg-header=true].archive .container-wrap {
+		padding-top:50px!important;
+	}
+}

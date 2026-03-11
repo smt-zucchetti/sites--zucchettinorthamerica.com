@@ -1,0 +1,114 @@
+.hc-blog-single--toc {
+	position: sticky;
+	top: 130px;
+	border: 1px solid #c5cad1;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+.hc-blog-single--toc_title {
+	background-color: $primary;
+	padding: 15px 20px;
+	margin: 0;
+	font-size: 22px !important;
+	line-height: 1.28em !important;
+	color: white;
+	margin-bottom: 0 !important;
+}
+
+@media screen and (max-width: 1023px) {
+	.hc-blog-single--toc_title {
+		cursor: pointer;
+		position: relative;
+		padding-right: 40px;
+	}
+
+	.hc-blog-single--toc_title:after,
+	.hc-blog-single--toc_title:before {
+		content: "";
+		position: absolute;
+		background-color: rgba(70, 63, 58, 1);
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	.hc-blog-single--toc_title:after {
+		width: 20px;
+		height: 1px;
+		right: 20px;
+	}
+
+	.hc-blog-single--toc_title:before {
+		height: 20px;
+		width: 1px;
+		right: 30px;
+	}
+
+	.hc-blog-single--toc_title.open:before {
+		display: none;
+	}
+}
+
+.hc-blog-single--toc_items {
+	background-color: white;
+	max-height: calc(100vh - 300px);
+	overflow: auto;
+	margin-left: 0;
+	padding: 15px;
+	font-size: 22px;
+	font-weight: 800;
+	margin-bottom: 0;
+}
+
+@media screen and (min-width: 1024px) {
+	.hc-blog-single--toc_items {
+		display: block !important;
+	}
+}
+
+@media screen and (max-width: 1023px) {
+	.hc-blog-single--toc_items:not(.open) {
+		display: none;
+	}
+}
+
+.hc-blog-single--toc_items::-webkit-scrollbar {
+	width: 7px;
+}
+
+/* Track */
+.hc-blog-single--toc_items::-webkit-scrollbar-track {
+	background: white;
+}
+
+/* Handle */
+.hc-blog-single--toc_items::-webkit-scrollbar-thumb {
+	background: $primary;
+	border-radius: 5px;
+}
+
+.hc-blog-single--toc_items li {
+	padding: 10px 25px;
+	margin-bottom: 0;
+	list-style: none;
+}
+
+.hc-blog-single--toc_items li a {
+	font-size: 18px;
+	line-height: 1.2em;
+	font-weight: 400;
+	color: $pColor;
+    position: relative;
+	&:before {
+		@include iconFont;
+		content: "\";
+		position: absolute;
+		top: 5px;
+		left: -20px;
+        font-size: 10px;
+	}
+}
+
+.hc-blog-single--toc_items li a.active {
+	font-weight: bold;
+}

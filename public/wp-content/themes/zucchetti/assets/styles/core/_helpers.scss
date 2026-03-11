@@ -1,0 +1,601 @@
+// Margin helpers
+.mb-12 {
+	margin-bottom: 12px;
+}
+
+.mb-24 {
+	margin-bottom: 24px;
+}
+
+.mb-36 {
+	margin-bottom: 36px;
+}
+
+.mb-48 {
+	margin-bottom: 48px;
+}
+
+.mb-0 {
+	margin-bottom: 0;
+}
+
+// Max widths for rows
+// Add to: Row
+.row-mw-1000 {
+	max-width: 1000px;
+	margin: 0 auto;
+}
+
+.row-mw-900 {
+	max-width: 900px;
+	margin: 0 auto;
+}
+
+.row-mw-800 {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
+.row-mw-700 {
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+.row-mw-600 {
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+// Increase text size, useful for intro blocks
+.big-text {
+	font-size: 22px;
+	line-height: 35px;
+}
+
+.med-text {
+	font-size: 18px;
+	line-height: 24px;
+}
+
+// attempt to make text white
+.white-text,
+.white-text p {
+	color: white;
+}
+
+// Set high z-index, useful for setting a row overtop of the next one
+.z-index-99 {
+	z-index: 99;
+}
+
+/**
+ * Class can be applied to make responsive top and botom spacing.
+ * adjust as necessary.
+ */
+
+.block-padding {
+	padding-top: 75px !important;
+	padding-bottom: 75px !important;
+
+	@media screen and (min-width: 1024px) {
+		padding-top: 150px !important;
+		padding-bottom: 150px !important;
+	}
+}
+
+/**
+ * Align text to the right, only on desktop
+ */
+.align-right-desktop {
+	@media screen and (min-width: 1001px) {
+		text-align: right;
+	}
+}
+
+/**
+ * Some random image width constraints. Good for the single image
+ * block extra class.
+ */
+
+.img-max-height-115 {
+	max-height: 115px !important;
+	width: auto !important;
+    max-width:100%!important;
+}
+
+.img-max-width-70 {
+	width: 100%;
+	max-width: 70px !important;
+}
+
+.img-max-width-100 {
+	width: 100%;
+	max-width: 100px !important;
+}
+
+.img-max-width-120 {
+	width: 100%;
+	max-width: 120px !important;
+}
+
+.img-max-width-140 {
+	width: 100%;
+	max-width: 140px !important;
+}
+
+.img-max-width-160 {
+	width: 100%;
+	max-width: 160px !important;
+}
+
+.img-max-width-180 {
+	width: 100%;
+	max-width: 180px !important;
+}
+
+.img-max-width-200 {
+	width: 100%;
+	max-width: 200px !important;
+}
+
+.img-max-width-220 {
+	width: 100%;
+	max-width: 220px !important;
+}
+
+.img-max-width-240 {
+	width: 100%;
+	max-width: 240px !important;
+}
+
+.img-max-width-260 {
+	width: 100%;
+	max-width: 260px !important;
+}
+
+.img-max-width-280 {
+	width: 100%;
+	max-width: 280px !important;
+}
+.img-max-height-40 {
+	width: 100%;
+	max-height: 40px !important;
+}
+.img-max-height-65 {
+	width: 100%;
+	max-height: 65px !important;
+}
+
+/**
+ * Constrain a row's width.
+ */
+.constrain-width {
+	max-width: 960px;
+	margin: 0 auto;
+}
+
+/**
+ * Hide a row's overflow.
+ */
+.hide-overflow {
+	overflow: hidden;
+
+	.vc_editor & {
+		// since we've hidden the overflow, we need to add some padding to show the VC controls, if top padding is 0
+		&[style^="padding-top: 0px"] {
+			padding-top: 30px !important;
+		}
+	}
+}
+
+/**
+ * Forces the columns' wpb wrapper to height 100%
+ */
+
+.height-100 {
+	.wpb_wrapper {
+		height: 100%;
+	}
+}
+
+/**
+ * Hide the carousel block's dots navigation
+ */
+.hide-flickity-dots {
+	.flickity-page-dots {
+		display: none !important;
+	}
+}
+
+.small {
+	font-size: 19px;
+}
+
+.smaller {
+	font-size: 15px;
+}
+
+.large {
+	font-size: 24px;
+}
+
+.larger {
+	font-size: 26px;
+}
+
+.red-period {
+	&:not(.nectar-split-heading) {
+		&:after {
+			content: ".";
+			color: $primary;
+		}
+	}
+
+	&.nectar-split-heading {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			& > span:last-child {
+				&:after {
+					content: ".";
+					color: $primary;
+				}
+			}
+		}
+	}
+}
+
+.red-question-mark {
+	&:not(.nectar-split-heading) {
+		&:after {
+			content: "?";
+			color: $primary;
+		}
+	}
+
+	&.nectar-split-heading {
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			& > span:last-child {
+				&:after {
+					content: "?";
+					color: $primary;
+				}
+			}
+		}
+	}
+}
+
+.equal-heights.vc_row-o-equal-height .vc_column-inner,
+.equal-heights.vc_row-o-equal-height .vc_column-inner > .wpb_wrapper {
+	height: 100%;
+}
+
+@media screen and (max-width: 999px) {
+	.mobile-image-overlay {
+		& > .row-bg-wrap {
+			.row-bg {
+				position: relative;
+
+				&:before {
+					content: "";
+					position: absolute;
+					top: 0;
+					left: 0;
+					width: 100%;
+					height: 100%;
+					background-color: rgba(0, 0, 0, 0.6);
+				}
+			}
+		}
+	}
+}
+
+.home-banner {
+	@media screen and (max-width: 767px) {
+		h1 {
+			font-size: 6vw !important;
+			line-height: 1.5em;
+		}
+	}
+}
+
+.inner-page-header {
+	body:not(.vc_editor) & {
+		min-height: 300px;
+
+		div {
+			min-height: 300px;
+		}
+
+		.vc_column-inner > .wpb_wrapper {
+			padding-top: 30px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			@media screen and (max-width: 767px) {
+				padding-top: 0px;
+			}
+
+			div {
+				min-height: unset;
+			}
+
+			& > div {
+				flex: 0 0 100%;
+				max-width: 100%;
+			}
+		}
+	}
+
+	body.vc_editor & {
+		.vc_column-inner {
+			padding: 125px 0;
+		}
+	}
+
+	@media screen and (max-width: 767px) {
+		h1 {
+			font-size: 6vw !important;
+			line-height: 1.5em;
+		}
+	}
+
+	@media screen and (min-width: 768px) {
+		body:not(.vc_editor) & {
+			min-height: 541px;
+
+			div {
+				min-height: 541px;
+			}
+		}
+	}
+}
+
+.justify-content-center {
+	& > [class^="row_col_wrap_"] {
+		justify-content: center;
+	}
+}
+
+/**
+ * A global background iamge helper
+ */
+.g--bg-img {
+	position: relative;
+
+	& > img {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100% !important;
+		object-fit: cover;
+		object-position: center;
+	}
+}
+
+.fw-400 {
+	font-weight: 400 !important;
+}
+
+.fw-500 {
+	font-weight: 500 !important;
+}
+
+.fw-600 {
+	font-weight: 600 !important;
+}
+
+.fw-700 {
+	font-weight: 700 !important;
+}
+
+.fw-800 {
+	font-weight: 800 !important;
+}
+
+/**
+ * A basic green arrow link
+ */
+
+.green-arrow-link {
+	position: relative;
+	color: $primary !important;
+	font-weight: bold;
+	opacity: 1 !important;
+	display: inline-flex;
+	gap: 10px;
+	align-items: center;
+
+	&:after {
+		@include iconFont;
+		content: "\";
+		line-height: 0;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	&:hover {
+		&:after {
+			transform: translateX(5px);
+		}
+	}
+}
+
+.gradient-text {
+	background: linear-gradient(
+			92.03deg,
+			#0069b4 4.73%,
+			rgba(0, 105, 180, 0) 78.34%
+		),
+		#1e1e1e;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
+	text-fill-color: transparent;
+}
+
+.zucchetti-cta-bg-accent {
+	.column-image-bg-wrap {
+		z-index: 2 !important;
+	}
+
+	.column-image-bg {
+		background-repeat: no-repeat;
+	}
+
+	.wpb_wrapper {
+		position: relative;
+		z-index: 2;
+	}
+}
+
+.zucchetti-map-bg {
+	& > .row-bg-wrap {
+		& > .inner-wrap {
+			& > .row-bg {
+				background-size: clamp(40%, 55%, 1000px);
+			}
+		}
+	}
+}
+
+.zucchetti-footer-cta {
+	.wpb_wrapper {
+		text-align: center;
+	}
+}
+
+.zucchetti-footer-cta {
+	color: white;
+
+	.column-bg-overlay-wrap {
+		border-radius: 10px;
+	}
+
+	.wpb_wrapper {
+		padding: 35px 20px;
+
+		* {
+			color: white;
+		}
+		p:last-child {
+			padding-bottom: 0;
+		}
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			margin-bottom: 20px;
+		}
+	}
+
+	.wpb_text_column {
+		margin-bottom: 0 !important;
+	}
+
+	.column-image-bg {
+		background-position: bottom right;
+	}
+}
+
+.banner-text-shadow {
+	* {
+		text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.15);
+	}
+}
+
+.hero-banner-accent {
+	& > .vc_column-inner {
+		& > .column-image-bg-wrap {
+			margin-left: -50vw;
+			margin-left: calc(-50vw + var(--scroll-bar-w) / 2);
+			left: 50%;
+			width: 100vw;
+			width: calc(100vw - var(--scroll-bar-w));
+
+			& > .inner-wrap {
+				.column-image-bg {
+					background-repeat: no-repeat;
+				}
+			}
+		}
+	}
+}
+
+.zucchetti-banner-pre-title {
+	display: inline-block;
+	border-left: 5px solid $secondary;
+	text-transform: uppercase;
+	position: relative;
+	background: linear-gradient(
+		90deg,
+		rgba(3, 59, 98, 0.94) 0%,
+		#036ab4 97.54%
+	);
+	color: white;
+	padding: 5px 10px 3px !important;
+	margin-right: 17px;
+	&:after {
+		content: "";
+		background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNy4yMyAzNC45Ij48cGF0aCBkPSJNMCAwdjM0LjlsMTcuMjMtMTcuNDVMMCAweiIgZmlsbD0iIzAzNmFiNCIvPjwvc3ZnPg==");
+		position: absolute;
+		right: -17px;
+		top: 0;
+		height: 100%;
+		width: 17px;
+		background-repeat: no-repeat;
+		background-position: right center;
+		background-size: cover;
+	}
+}
+
+.zucchetti-accent-bg-1 {
+	& > .row-bg-wrap {
+		& > .row-bg-layer {
+			& > .row-bg {
+				background-size: clamp(500px, 40%, 600px);
+			}
+		}
+	}
+}
+
+.zucchetti-row-acccent-1 {
+	& > .row-bg-wrap {
+		& > .row-bg-layer.using-image {
+			z-index: 4;
+			& > .row-bg {
+				background-size: contain;
+			}
+		}
+	}
+}
+body:not(.vc_editor) {
+	.row-border-radius-10 {
+		& > .row_col_wrap_12 {
+			border-radius: 10px;
+			overflow: hidden;
+		}
+	}
+}
+
+
+@media screen and (max-width:999px) {
+	.center-mobile {
+		text-align: center!important;
+	}
+}
+
+.p-pb-0 p {
+	padding-bottom:0!important;
+}

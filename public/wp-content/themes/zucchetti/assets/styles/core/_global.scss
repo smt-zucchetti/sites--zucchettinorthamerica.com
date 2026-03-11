@@ -1,0 +1,71 @@
+// embolden strong tags
+body.roketto {
+
+    // since we're removing the default footer and replacing it with
+    // a templatera shortcode, we need to remove the padding on the
+    // parent content wrapper
+    #ajax-content-wrap>.container-wrap {
+        padding-bottom: 0 !important;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    body[data-slide-out-widget-area-style="slide-out-from-right"].material .slide_out_area_close {
+        display: block !important;
+        left: unset !important;
+        right: 125px !important;
+    }
+}
+
+.warning {
+    padding: 16px 20px;
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.4;
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.warning::before {
+    content: "⚠️";
+    font-size: 18px;
+}
+
+body.vc_editor .vc_column-inner>.column-link {
+    display: none !important;
+}
+
+.align-col-content-bottom {
+    align-items: flex-end !important;
+}
+
+/**
+ * Hide the blog archive header
+ */
+.blog-archive-header {
+    display: none !important;
+}
+
+body #sidebar .widget {
+    margin-bottom: 40px;
+
+    &:last-child {
+        position: sticky;
+        top: 130px;
+    }
+}
+
+
+/**
+ * Replace the icon check with a circle
+ */
+.fa-check-circle-o:before {
+    @include iconFont;
+    content: "\"!important;
+}

@@ -1,0 +1,65 @@
+.ntb_417 {
+	background-color: transparent !important;
+	border-radius: 10px;
+	overflow: hidden;
+
+	tr,
+	td,
+	th {
+		width: 100%;
+		background-color: #0d131e !important;
+		padding: 35px !important;
+		max-width: unset !important;
+		min-width: unset !important;
+		span {
+			text-align: left !important;
+			color: white !important;
+		}
+		width: 75% !important;
+		&:first-child {
+			width: 33.33% !important;
+		}
+	}
+
+	tr:first-child {
+		td {
+			border: none !important;
+			background-color: $primary !important;
+			// &:first-child {
+			//     border-top-left-radius: 10px;
+			// }
+			// &:last-child {
+			//     border-top-right-radius: 10px;
+			// }
+			span {
+				color: white !important;
+				font-weight: 600 !important;
+				font-size: 26px !important;
+			}
+		}
+	}
+
+	tr:not(:first-child) {
+		td:first-child {
+			span {
+				font-size: 22px !important;
+				font-weight: 600 !important;
+			}
+		}
+		td:last-child {
+			span {
+				font-size: 20px !important;
+				font-weight: 400 !important;
+			}
+		}
+	}
+}
+#ninja_table_builder_417 {
+	width: 100% !important;
+	max-width: unset !important;
+	min-width: unset !important;
+}
+
+.ntb_edit_table_class_417 {
+	display: none;
+}

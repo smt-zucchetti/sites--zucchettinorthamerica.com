@@ -1,0 +1,25 @@
+document.addEventListener("DOMContentLoaded", function() {
+    const popup = document.getElementById("newsVideoPopup");
+    const popupContent = popup.querySelector(".news-video-content");
+    const closeBtn = popup.querySelector(".news-video-close");
+
+    document.querySelectorAll(".news-list-play-btn").forEach(btn => {
+        btn.addEventListener("click", function() {
+            const videoHTML = JSON.parse(this.getAttribute("data-video"));
+            popupContent.innerHTML = videoHTML;
+            popup.classList.add("active");
+        });
+    });
+
+    closeBtn.addEventListener("click", function() {
+        popup.classList.remove("active");
+        popupContent.innerHTML = "";
+    });
+
+    popup.addEventListener("click", function(e) {
+        if (e.target === popup) {
+            popup.classList.remove("active");
+            popupContent.innerHTML = "";
+        }
+    });
+});

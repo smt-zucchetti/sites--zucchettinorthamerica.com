@@ -1,0 +1,469 @@
+/**
+ * A psuedo grid system based on bootstrap compatible
+ * with Salient theme.
+ */
+
+$gutter: 15px;
+
+
+$grid-breakpoints: (xs: 0,
+sm: 480px,
+md: 690px,
+lg: 1000px,
+xl: 1425px) !default;
+
+
+// Breakpoint viewport sizes and media queries.
+//
+// Breakpoints are defined as a map of (name: minimum width), order from small to large:
+//
+//    (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px)
+//
+// The map defined in the `$grid-breakpoints` global variable is used as the `$breakpoints` argument by default.
+
+// Name of the next breakpoint, or null for the last breakpoint.
+//
+//    >> breakpoint-next(sm)
+//    md
+//    >> breakpoint-next(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    md
+//    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
+//    md
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+    $n: index($breakpoint-names, $name);
+    @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+//
+//    >> breakpoint-min(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    576px
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+    $min: map-get($breakpoints, $name);
+    @return if($min !=0, $min, null);
+}
+
+// Maximum breakpoint width. Null for the largest (last) breakpoint.
+// The maximum value is calculated as the minimum of the next one less 0.1.
+//
+//    >> breakpoint-max(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    767px
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+    $next: breakpoint-next($name, $breakpoints);
+    @return if($next, breakpoint-min($next, $breakpoints) - 1px, null);
+}
+
+// Returns a blank string if smallest breakpoint, otherwise returns the name with a dash infront.
+// Useful for making responsive utilities.
+//
+//    >> breakpoint-infix(xs, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    ""  (Returns a blank string)
+//    >> breakpoint-infix(sm, (xs: 0, sm: 576px, md: 768px, lg: 992px, xl: 1200px))
+//    "-sm"
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+    @return if(breakpoint-min($name, $breakpoints)==null, "", "-#{$name}");
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+    $max: breakpoint-max($name, $breakpoints);
+
+    @if $max {
+        @media (max-width: $max) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
+
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($lower, $breakpoints);
+    $max: breakpoint-max($upper, $breakpoints);
+
+    @if $min !=null and $max !=null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    }
+
+    @else if $max==null {
+        @include media-breakpoint-up($lower) {
+            @content;
+        }
+    }
+
+    @else if $min==null {
+        @include media-breakpoint-down($upper) {
+            @content;
+        }
+    }
+}
+
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+    $max: breakpoint-max($name, $breakpoints);
+
+    @if $min !=null and $max !=null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    }
+
+    @else if $max==null {
+        @include media-breakpoint-up($name) {
+            @content;
+        }
+    }
+
+    @else if $min==null {
+        @include media-breakpoint-down($name) {
+            @content;
+        }
+    }
+}
+
+
+.rk-container {
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: $gutter;
+    padding-right: $gutter;
+
+    @media only screen and (max-width: 690px) {
+        max-width: 320px;
+    }
+
+    @media only screen and (max-width: 690px) and (min-width: 480px) {
+        max-width: 420px;
+    }
+
+    @media only screen and (max-width: 999px) and (min-width: 690px) {
+        max-width: 600px;
+    }
+
+    @media only screen and (min-width: 1024px) {
+        max-width: 1425px;
+        padding-left: 90px; // salient....
+        padding-right: 90px; // salient....
+        // padding-left:15px;
+        // padding-right:15px;
+    }
+
+}
+
+.rk-row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -#{$gutter};
+    margin-left: -#{$gutter};
+
+    &.justify-content-center {
+        -ms-flex-pack: center !important;
+        justify-content: center !important;
+    }
+
+    &.justify-content-around {
+        -ms-flex-pack: distribute !important;
+        justify-content: space-around !important;
+    }
+
+    &.justify-content-between {
+        -webkit-box-pack: justify !important;
+        -ms-flex-pack: justify !important;
+        justify-content: space-between !important;
+    }
+
+    &.align-items-center {
+        -ms-flex-align: center !important;
+        align-items: center !important;
+    }
+
+    &.flex-md-row-reverse {
+        -ms-flex-direction: row-reverse !important;
+        flex-direction: row-reverse !important;
+    }
+
+    &.gutter-96 {
+        margin-left: -48px;
+        margin-right: -48px;
+
+        >[class^="col-"] {
+            padding-left: 48px;
+            padding-right: 48px;
+        }
+    }
+
+    &.gutter-84 {
+        margin-left: -42px;
+        margin-right: -42px;
+
+        >[class^="col-"] {
+            padding-left: 42px;
+            padding-right: 42px;
+        }
+    }
+
+    &.gutter-72 {
+        margin-left: -36px;
+        margin-right: -36px;
+
+        >[class^="col-"] {
+            padding-left: 36px;
+            padding-right: 36px;
+        }
+    }
+
+    &.gutter-60 {
+        margin-left: -30px;
+        margin-right: -30px;
+
+        >[class^="col-"] {
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+    }
+
+    &.gutter-48 {
+        margin-left: -24px;
+        margin-right: -24px;
+
+        >[class^="col-"] {
+            padding-left: 24px;
+            padding-right: 24px;
+        }
+    }
+
+    &.gutter-36 {
+        margin-left: -18px;
+        margin-right: -18px;
+
+        >[class^="col-"] {
+            padding-left: 18px;
+            padding-right: 18px;
+        }
+    }
+
+    &.gutter-12 {
+        margin-left: -#{$gutter};
+        margin-right: -#{$gutter};
+
+        >[class^="col-"] {
+            padding-left: $gutter;
+            padding-right: $gutter;
+        }
+    }
+
+    &.gutter-6 {
+        margin-left: -6px;
+        margin-right: -6px;
+
+        >[class^="col-"] {
+            padding-left: 6px;
+            padding-right: 6px;
+        }
+    }
+
+    &.gutter-0 {
+        margin-left: -0px;
+        margin-right: -0px;
+
+        >[class^="col-"] {
+            padding-left: 0px;
+            padding-right: 0px;
+        }
+    }
+}
+
+// reset grids
+.rk-md-5th,
+.rk-md-1,
+.rk-md-2,
+.rk-md-3,
+.rk-md-4,
+.rk-md-5,
+.rk-md-6,
+.rk-md-7,
+.rk-md-8,
+.rk-md-8,
+.rk-md-9,
+.rk-md-10,
+.rk-md-11,
+.rk-md-12,
+.rk-lg-5th,
+.rk-lg-1,
+.rk-lg-2,
+.rk-lg-3,
+.rk-lg-4,
+.rk-lg-5,
+.rk-lg-6,
+.rk-lg-7,
+.rk-lg-8,
+.rk-lg-8,
+.rk-lg-9,
+.rk-lg-10,
+.rk-lg-11,
+.rk-lg-12 {
+    max-width: 100%;
+    flex: 0 0 100%;
+    padding: 0 $gutter;
+}
+
+@media screen and (min-width:768px) {
+    .rk-md-1 {
+        flex: 0 0 8.33%;
+        max-width: 8.33%;
+    }
+
+    .rk-md-2 {
+        flex: 0 0 16.66%;
+        max-width: 16.66%;
+    }
+
+    .rk-md-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .rk-md-4 {
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+    }
+
+    .rk-md-5 {
+        flex: 0 0 41.66%;
+        max-width: 41.66%;
+    }
+
+    .rk-md-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .rk-md-7 {
+        flex: 0 0 58.33%;
+        max-width: 58.33%;
+    }
+
+    .rk-md-8 {
+        max-width: 66.66%;
+        flex: 0 0 66.66%;
+    }
+
+    .rk-md-9 {
+        max-width: 75%;
+        flex: 0 0 75%;
+    }
+
+    .rk-md-10 {
+        max-width: 83.33%;
+        flex: 0 0 83.33%;
+    }
+
+    .rk-md-11 {
+        max-width: 91.66%;
+        flex: 0 0 91.66%;
+    }
+
+    .rk-md-12 {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .rk-md-5th {
+        max-width: 20%;
+        flex: 0 0 20%;
+    }
+}
+
+@media screen and (min-width:1001px) {
+    .rk-lg-1 {
+        flex: 0 0 8.33%;
+        max-width: 8.33%;
+    }
+
+    .rk-lg-2 {
+        flex: 0 0 16.66%;
+        max-width: 16.66%;
+    }
+
+    .rk-lg-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .rk-lg-4 {
+        flex: 0 0 33.33%;
+        max-width: 33.33%;
+    }
+
+    .rk-lg-5 {
+        flex: 0 0 41.66%;
+        max-width: 41.66%;
+    }
+
+    .rk-lg-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .rk-lg-7 {
+        flex: 0 0 58.33%;
+        max-width: 58.33%;
+    }
+
+    .rk-lg-8 {
+        max-width: 66.66%;
+        flex: 0 0 66.66%;
+    }
+
+    .rk-lg-9 {
+        max-width: 75%;
+        flex: 0 0 75%;
+    }
+
+    .rk-lg-10 {
+        max-width: 83.33%;
+        flex: 0 0 83.33%;
+    }
+
+    .rk-lg-11 {
+        max-width: 91.66%;
+        flex: 0 0 91.66%;
+    }
+
+    .rk-lg-12 {
+        max-width: 100%;
+        flex: 0 0 100%;
+    }
+
+    .rk-lg-5th {
+        max-width: 20%;
+        flex: 0 0 20%;
+    }
+}

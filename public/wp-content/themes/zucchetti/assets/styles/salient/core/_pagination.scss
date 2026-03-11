@@ -1,0 +1,9 @@
+/**
+ * Salient pagination overrides
+ */
+.post-area.masonry.span_12 #pagination, .blog-fullwidth-wrap .post-area.masonry #pagination, .post-area.masonry.span_9 #pagination {
+	text-align: center;
+	a, span, p {
+		@include themeFont();
+	}	
+}

@@ -1,0 +1,140 @@
+body.roketto {
+	&.material #header-outer[data-transparent-header="true"].transparent {
+		border-bottom: 1px solid #9aa1a8 !important;
+		.buttons.sf-menu {
+			.header-phone-number--wrap {
+				i,
+				.header-phone-number--phone,
+				.header-phone-number--text {
+					color: white;
+				}
+			}
+			.login_url--wrap {
+				a.login_url--link {
+					i,
+					span {
+						color: white;
+					}
+				}
+			}
+		}
+	}
+
+	&.material #header-outer:not([data-format=left-header]) #top nav>.buttons {
+		margin-left: 0;
+	}
+
+	#header-outer {
+		.buttons.sf-menu {
+			display: flex;
+			flex-direction: row-reverse;
+			& > li {
+				border-left: 1px solid #9aa1a8 !important;
+				&:first-child {
+					padding-left: 30px;
+					padding-right: 30px;
+					border-right: 1px solid #9aa1a8 !important;
+				}
+			}
+
+			#search-btn {
+				min-width: 75px;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.header-phone-number--wrap {
+				display: flex;
+				gap: 10px;
+				align-items: center;
+				i {
+					font-size: 35px;
+				}
+			}
+			.header-phone-number--link {
+				display: flex;
+				flex-direction: column;
+			}
+			.header-phone-number--text {
+				text-transform: uppercase;
+				display: block;
+				margin-bottom: 10px;
+			}
+			.header-phone-number--phone {
+				font-size: 18px;
+				font-weight: 700;
+				display: block;
+				color: $pColor;
+				line-height:1;
+				@media screen and (min-width:1500px) {
+					font-size: 22px;
+				}
+			}
+			.header-phone-number {
+				display: flex;
+				margin: 0 !important;
+				padding: 0 10px;
+				@media screen and (max-width:1399px) {
+					display: none!important;
+				}
+			}
+
+			.login_url--wrap {
+				a.login_url--link {
+					display: flex;
+					flex-direction: column;
+					align-items: center;
+					i {
+						transition: color 0.3s ease-in-out;
+						font-size: 26px;
+						color: $pColor;
+					}
+					span {
+						display: inline-block;
+						margin-top: 7px;
+						text-transform: uppercase;
+						font-size: 10px;
+						transition: color 0.3s ease-in-out;
+						color: $pColor;
+					}
+				}
+			}
+
+			.icon-salient-search,
+			.icon-salient-m-user,
+			.icon-salient-cart {
+				font-size: 25px !important;
+				&:before {
+					@include iconFont;
+				}
+			}
+
+			.icon-salient-search {
+				&:before {
+					content: "\";
+				}
+			}
+
+			.icon-salient-m-user {
+				&:before {
+					content: "\";
+				}
+			}
+
+			.icon-salient-cart {
+				&:before {
+					content: "\";
+				}
+			}
+		}
+	}
+
+	&.material
+		#header-outer:not([data-format="left-header"])
+		#top
+		nav
+		> .buttons
+		> li {
+		margin-right: 24px;
+	}
+}

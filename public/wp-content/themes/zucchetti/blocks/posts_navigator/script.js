@@ -1,0 +1,88 @@
+(function($){
+
+    // Search bar toggle
+    var searchBtns = document.querySelectorAll('.posts-navigator--search_btn, .posts-navigator--search_close');
+    var searchBar = document.querySelector('.posts-navigator--search_bar');
+    var searchInput = searchBar ? searchBar.querySelector('.search-field') : null;
+
+    if (searchBtns.length && searchBar && searchInput) {
+        searchBtns.forEach(function(btn) {
+            btn.addEventListener('click', function() {
+                var isOpen = searchBar.classList.toggle('open');
+                if (isOpen) {
+                    setTimeout(function() {
+                        searchInput.focus();
+                        searchInput.select();
+                    }, 300);
+                }
+            });
+        });
+    }
+
+    function loadPosts($wrap, page, term, append = false) {
+        var $grid = $wrap.find('.posts-navigator--grid');
+        var atts = $wrap.data('atts');
+        var ajaxurl = ajax_vars.ajaxurl;
+
+        if (term !== undefined) {
+            atts.categories = term; // used by model
+        }
+
+        $.post(ajaxurl, {
+            action: 'cwb_blog_loadmore',
+            page: page,
+            atts: JSON.stringify(atts),
+            term: term
+        }, function(res){
+            if (res.success) {
+                if (append) {
+                    $grid.append(res.data.html);
+                } else {
+                    $grid.html(res.data.html);
+                }
+
+                $wrap.data('page', page);
+                $wrap.data('max-pages', res.data.max_pages);
+
+                if (page >= res.data.max_pages) {
+                    $wrap.find('.posts-navigator--loadmore').hide();
+                } else {
+                    $wrap.find('.posts-navigator--loadmore')
+                        .show()
+                        .html('<span>Load More</span><i class="icon-button-arrow"></i>');
+                }
+            }
+        });
+    }
+
+    // Load more button
+    $(document).on('click', '.posts-navigator--loadmore', function(e){
+        e.preventDefault();
+        var $wrap = $(this).closest('.posts-navigator');
+        var page = parseInt($wrap.data('page')) || 1;
+        var maxPages = parseInt($wrap.data('max-pages'));
+        var currentTerm = $wrap.find('.posts-navigator--filter_item.active').data('term') || '';
+
+        if (page >= maxPages) {
+            $(this).hide();
+            return;
+        }
+
+        $(this).text('Loading...');
+        loadPosts($wrap, page + 1, currentTerm, true);
+    });
+
+    // Term filter
+    $(document).on('click', '.posts-navigator--filter_item', function(e){
+        e.preventDefault();
+        var $btn = $(this);
+        var $wrap = $btn.closest('.posts-navigator');
+
+        $wrap.find('.posts-navigator--filter_item').removeClass('active');
+        $btn.addClass('active');
+
+        var term = $btn.data('term') || '';
+        loadPosts($wrap, 1, term, false);
+    });
+
+})(jQuery);

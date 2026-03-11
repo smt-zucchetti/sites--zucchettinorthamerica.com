@@ -1,0 +1,26 @@
+/**
+ * Typography overrides. Use this for more control over the theme's
+ * default font settings.
+ */
+body.roketto {
+    font-family: $pFont;
+    @include themeFont(light);
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: $hFont;
+    }
+
+    .pFont {
+        font-family: $pFont;
+    }
+
+    .hFont {
+        font-family: $hFont;
+    }
+
+}

@@ -1,0 +1,9 @@
+body.roketto {
+	&.material .nectar-button.has-icon.jumbo:not([class*=see-through]) i {
+		background-color: white;
+		color:$primary;
+	}
+	&.material[data-button-style^=rounded] .nectar-button.see-through i {
+		color:$secondary!important;
+	}
+}

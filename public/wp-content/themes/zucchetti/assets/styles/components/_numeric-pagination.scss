@@ -1,0 +1,61 @@
+/**
+ * Some basic styling for the numeric pagination
+ * output. See lib/extras/wp_numeric_pagination.php
+ */
+.numeric-pagination {
+	text-align: center;
+	font-size: 15px;
+	margin: 40px 0 0px;
+	padding-top: 40px;
+	border-top:1px solid #eaeaea;
+	a {
+		color: $pColor;
+		text-decoration: none;
+
+	}
+	i {
+		vertical-align: -3px;
+	}
+
+	.page-numbers {
+		width: 40px;
+		position: relative;
+		display: inline-block;
+		line-height: 40px;
+		border-radius:3px;
+		transition: $transition;
+		font-weight: bold;
+		font-size:21px;
+		&.current {	
+			background-color: $pColor;
+			color:white;
+		}
+		&:hover {
+			&:not(.current) {
+				background-color: $primary;
+				color:white;
+			}
+		}
+		&.prev {
+			float:left;
+		}
+		&.next {
+			float: right;
+		}
+		&.next, &.prev {
+			font-family: $pFont;
+			width: auto;
+			transition: $transition;
+			display:inline-block;
+			font-size:16px;
+			font-weight: 500;
+			.text {
+				margin: 0 10px;
+			}
+			&:hover {
+				background-color: transparent;
+				color: $primary;
+			}
+		}
+	}
+}

@@ -1,0 +1,33 @@
+// Font mixin
+@mixin themeFont($weight:regular, $style:normal) {
+
+    // font family	
+    font-family: $theme_font;
+
+    // font style
+    @if $style==italic {
+        font-style: italic;
+    }
+
+    @else {
+        font-style: normal;
+    }
+
+    // font weight--feel free to adjust based on your font stack
+    @if $weight==regular {
+        font-weight: 500;
+    }
+
+    @else if $weight==light {
+        font-weight: 400;
+    }
+
+    @else if $weight==demi {
+        font-weight: 600;
+    }
+
+    @else if $weight==bold {
+        font-weight: 700;
+    }
+
+}

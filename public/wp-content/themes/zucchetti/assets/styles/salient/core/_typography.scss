@@ -1,0 +1,16 @@
+/**
+ * Ensure all salient elements are using the custom font
+ */
+body.roketto {
+	.row .col.section-title h1, .row .col.section-title h2 {
+		@include themeFont();
+	}
+	#respond h3, h3#comments,
+	input[type=submit], button[type=submit], input[type="button"] {
+		@include themeFont();
+	}
+	.form-submit input[type=submit],
+	button[type=submit], input[type="button"] {
+		@include themeFont();
+	}
+}

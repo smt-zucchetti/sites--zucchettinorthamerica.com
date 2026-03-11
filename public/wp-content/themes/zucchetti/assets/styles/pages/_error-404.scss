@@ -1,0 +1,11 @@
+/**
+ * 404 Page styles
+ */
+body #ajax-content-wrap #error-404 {
+	h1 {
+		@include themeFont();
+	}
+	h2 {
+		@include themeFont();
+	}
+}

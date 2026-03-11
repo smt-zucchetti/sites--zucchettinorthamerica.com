@@ -1,0 +1,10 @@
+{
+  "name": "zucchetti",
+  "homepage": "https://ianhoyte.com",
+  "authors": [
+    "ih"
+  ],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {}
+}
