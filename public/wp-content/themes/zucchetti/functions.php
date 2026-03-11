@@ -2,6 +2,7 @@
 /**
  * Theme functions
  */
+die('asdf');
 $ih_includes = [
 	'lib/RokettoProductCallouts.php',
 	'lib/theme_info.php',
